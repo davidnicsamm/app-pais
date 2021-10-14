@@ -9,7 +9,7 @@ import Box from '@mui/material/Box';
 const textoInicial = () => {
 
     return(
-        <Box >
+        <Box sx={{textAlign: "justify", pr: 2, pl: 2}}>
             {/* <h1>Bienvenidos</h1> */}
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quid ergo? Illud quaero, quid ei, qui in voluptate summum bonum ponat, consentaneum sit dicere. Respondeat totidem verbis. Sed utrum hortandus es nobis, Luci, inquit, an etiam tua sponte propensus es? Non igitur bene. Sin tantum modo ad indicia veteris memoriae cognoscenda, curiosorum. Illi enim inter se dissentiunt. Duo Reges: constructio interrete. Sed ad bona praeterita redeamus. Certe nihil nisi quod possit ipsum propter se iure laudari.

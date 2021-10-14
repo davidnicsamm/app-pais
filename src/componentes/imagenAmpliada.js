@@ -61,8 +61,8 @@ const ImagenAmpliada = ({imagen, openModal, closeModal,raza, subRaza}) => {
                                 // alt="green iguana"
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="div">
-                                {subRaza} {raza}
+                                <Typography gutterBottom component="div" sx={{mt: 1, pl: 1, textAlign:'left', fontSize: '1.1em', color: '#253030'}}>
+                                {subRaza.toUpperCase()} {raza.toUpperCase()}
                                 </Typography>
                                 {/* <Typography variant="body2" color="text.secondary">
                                 Lizards are a widespread group of squamate reptiles, with over 6,000
