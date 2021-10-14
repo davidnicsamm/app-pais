@@ -1,5 +1,15 @@
 .App {
   text-align: center;
+  background-color: #F4F4F4; /*#F3F2EF; */
+  /* background-image: url('./imagenes/job562-nunoon-05.jpg'); */
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  
+  
+  
+ 
 }
 
 .App-logo {
@@ -14,14 +24,23 @@
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: #253030;
+  
+  
+  /* #282c34; */
+  height: 10vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  text-align: left;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  color: #FFFFFF;  /*#D28D39; */
+  margin-bottom: 3rem;
+  padding-left: 1rem;
+
+  
+  
 }
 
 .App-link {
@@ -36,3 +55,12 @@
     transform: rotate(360deg);
   }
 }
+
+.App-cuerpo {
+  height: 90vh;
+  background-image: radial-gradient(ellipse farthest-corner at 45px 45px , #0f0 50%, rgba(0, 0, 0, 0) 0%, #fff 50%);
+
+  
+}
+
+/* <a href='https://www.freepik.es/fotos/perro'>Foto de Perro creado por wirestock - www.freepik.es</a> */
