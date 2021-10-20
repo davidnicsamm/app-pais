@@ -1,5 +1,6 @@
 {
   "name": "app-pais",
+  "homepage": "http://imagenescaninas.dnsammart.com.ar",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,8 +22,7 @@
     "react-scripts": "4.0.3",
     "web-vitals": "^1.0.1"
   },
-  "homepage": "imagenescaninas.dnsammart.com.ar",
-  "scripts": {
+    "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
