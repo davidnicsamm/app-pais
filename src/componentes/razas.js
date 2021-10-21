@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import { makeStyles } from '@mui/material/styles';
-// import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
-import { red } from '@mui/material/colors';
 import axios  from 'axios';
 
   
@@ -21,7 +19,6 @@ const Razas = ({raza,changeRaza}) => {
 
     //Obtiene el listado de todas las razas
     const obtenerListadoRazas = () =>{
-
         //Consulta la API
         const urlListado = "https://dog.ceo/api/breeds/list/all"
         
