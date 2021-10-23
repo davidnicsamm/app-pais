@@ -13,8 +13,7 @@ const Razas = ({raza,changeRaza}) => {
 
     //const classes = useStyles();    
     const [listadoRazas,setListadoRazas] = useState([])
-    const [seleccion, setSeleccion] = useState('')
-
+    
   
 
     //Obtiene el listado de todas las razas
@@ -67,26 +66,7 @@ const Razas = ({raza,changeRaza}) => {
             />
 
 
-                {/* <InputLabel id="selctLabelName" sx={{ mt: 3}}>Raza</InputLabel>
-                <Select
-                    sx={{ mb: 2, mt: 5, height: 35}}
-                    labelId = "selectLabelName"
-                    id = "selectName"
-                    value={raza}
-                    lsabel="Raza"
-                    onChange={ (e) => {changeRaza(e.target.value)}}
-                  
-                    
-
-                >
-                    {listadoRazas.map((raza) => (
-                        <MenuItem key={raza} value={raza}>
-                            {raza}
-                        </MenuItem>
-                    ))}
-
-                </Select> */}
-                 
+              
             </FormControl>
         </div>
     );

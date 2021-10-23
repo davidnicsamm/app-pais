@@ -4,6 +4,7 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import IconButton from '@mui/material/IconButton';
+import { CircularProgress } from '@mui/material';
 
 import ZoomOutMapOutlinedIcon from '@mui/icons-material/ZoomOutMapOutlined';
 
@@ -27,14 +28,16 @@ const useStyles = makeStyles({
     },
   });
 
+  
 
-
-const Imagenes = ({raza, subRaza, selectChange}) => {
+const Imagenes = ({raza, subRaza, selectChange, progreso, changeProgreso}) => {
 
     let urlListado = ""
 
+
     const classes = useStyles(); 
     const [listadoImagenes, setListadoImagenes] = useState([])
+    
     
     if(subRaza !== ""){         
         urlListado = "https://dog.ceo/api/breed/" + raza + "/" + subRaza + "/images"
@@ -47,6 +50,7 @@ const Imagenes = ({raza, subRaza, selectChange}) => {
         .then(
             res => {
                 setListadoImagenes(res.data.message)
+                changeProgreso(false)
             }
         )
     }
@@ -58,8 +62,9 @@ const Imagenes = ({raza, subRaza, selectChange}) => {
     return(
     
         <div className={classes.root}>
+            {progreso && <CircularProgress></CircularProgress>}
             
-            <ImageList className={classes.imageList} cols={3} variant="masonry" gap={8}>
+            {!progreso && <ImageList className={classes.imageList} cols={3} variant="masonry" gap={8}>
                 {listadoImagenes.map((item) => (
                     <ImageListItem key={item}>
                         <img
@@ -90,7 +95,7 @@ const Imagenes = ({raza, subRaza, selectChange}) => {
                         />
                     </ImageListItem>
                 ))}
-            </ImageList>
+            </ImageList>}
 
             
         </div>

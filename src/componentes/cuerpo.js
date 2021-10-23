@@ -14,17 +14,16 @@ import TextoInicial from './textoInicial';
 import Encabezado from './encabezado';
 import rgba from 'color-rgba';
 
+
 //import CircularProgress from '@mui/material/CircularProgress';
 
 
 const useStyles = makeStyles({
    
     contenedor: {
-        maxWidth:"md",
-      
+        maxWidth:"md",      
         height: '80vh',
-        width: '90vw',
-        
+        width: '90vw',        
     },
     
     gridContainer : {       
@@ -33,15 +32,10 @@ const useStyles = makeStyles({
         direction:"row",
         justifyContent:"space-around",
         alignItems:"top"
-
-        
     },
 
-    gridSelect: {
-       
+    gridSelect: {       
         backgroundColor: '#FFFFFF',
-        
-        
     },
 
     gridImages: {
@@ -60,11 +54,13 @@ const Cuerpo = () => {
         setRaza(newRaza);
         setSubRaza('');
         setMostrarLista(true)
+        setProgreso(true)
     }
 
     const [subRaza,setSubRaza] = useState('')
     const handleChangeSubRaza = (newSubRaza) => {
         setSubRaza(newSubRaza);
+        setProgreso(true)
     }
 
     const [img,setImg] = useState('')
@@ -81,12 +77,19 @@ const Cuerpo = () => {
     }
 
     const [mostrarLista, setMostrarLista] = useState(false)
+  
     const handleLimpiar = () => {
         setRaza('')
         setSubRaza('')
         setMostrarLista(false)
         setError(true)
+       
     }  
+
+    const [progreso, setProgreso] = useState(true)
+    const handleChangeProgreso = (newProgreso) => {
+        setProgreso(newProgreso)
+    }
    
    
     return(
@@ -115,20 +118,15 @@ const Cuerpo = () => {
                         {!mostrarLista && <Encabezado cadena={"Bienvenidos"}></Encabezado>}
                     {/* </Box> */}
                     <Box>
-                        {mostrarLista && <Imagenes raza={raza} subRaza={subRaza}  selectChange={handleChangeImagen}></Imagenes>}
+                     
+                        {mostrarLista && <Imagenes raza={raza} subRaza={subRaza}  selectChange={handleChangeImagen} progreso={progreso} changeProgreso={handleChangeProgreso}></Imagenes>}
                         {!mostrarLista && <TextoInicial ></TextoInicial>}
                         <ImagenAmpliada imagen={img} openModal={openModal} closeModal={handleCloseModal} raza={raza} subRaza={subRaza}></ImagenAmpliada>
                     </Box>
                 </Grid>
-
-
-            </Grid>
-           
+            </Grid>           
         </Container>
-
     )
-    
-
 }
 
 export default Cuerpo;

@@ -64,7 +64,7 @@ const SubRazas = ({raza, changeSubRaza, subRaza, changeError, error}) => {
                         }
                     }}
 
-                    sx={{ mb: 2, mt: 5, height: 35 }}
+                    sx={{ mb: 4, mt: 5, height: 35 }}
                     renderInput={(params) => <TextField {...params} label="SubRaza" />}
 
                 
@@ -72,27 +72,6 @@ const SubRazas = ({raza, changeSubRaza, subRaza, changeError, error}) => {
 
 
                 </Autocomplete>
-
-
-
-                {/* <InputLabel id="selectLabelName" sx={{ mt: 3}}>SubRaza</InputLabel>
-                <Select
-                    sx={{ mb: 2, mt: 5, height: 35}}
-                    labelId="selectLabelName"
-                    value={subRaza}
-                    onChange={ (e) => {changeSubRaza(e.target.value)}}
-                >
-                    {
-                        listadoSubRazas.map(
-                            (subRaza) => (
-                                <MenuItem key={subRaza} value={subRaza}>
-                                    {subRaza}
-                                </MenuItem>
-                            )
-                        )
-                    }
-
-                </Select> */}
 
             </FormControl>)}
 
