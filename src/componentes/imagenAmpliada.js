@@ -8,8 +8,12 @@ import CardMedia from '@mui/material/CardMedia';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import CardActionArea from '@mui/material/CardActionArea';
-import {primeraLetraMayuscula} from '../extras/funciones';
 import Backdrop from '@mui/material/Backdrop';
+import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
+import LoadingButton from '@mui/lab/LoadingButton';
+import CloseIcon from '@mui/icons-material/Close';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 
 const style = {
@@ -51,8 +55,18 @@ const ImagenAmpliada = ({imagen, openModal, closeModal,raza, subRaza}) => {
             >
                
                 <Box sx={style}>
-                    <Card sx={{ width: 450 }}>
+                    <Card sx={{ width: 450, borderRadius: 5,}}>
                         <CardActionArea>
+                            <Box sx={{textAlign:'right',  }} > 
+                                   
+                               
+                                
+                                <IconButton  onClick={() => {closeModal()}}>
+                                   <HighlightOffIcon color='error'></HighlightOffIcon> 
+                                </IconButton>
+                                
+
+                            </Box>
                             <CardMedia
                                 component="img"
                             
@@ -62,7 +76,7 @@ const ImagenAmpliada = ({imagen, openModal, closeModal,raza, subRaza}) => {
                             />
                             <CardContent>
                                 <Typography gutterBottom component="div" sx={{mt: 1, pl: 1, textAlign:'left', fontSize: '1.1em', color: '#253030'}}>
-                                {subRaza.toUpperCase()} {raza.toUpperCase()}
+                                    {subRaza.toUpperCase()} {raza.toUpperCase()}
                                 </Typography>
                                 {/* <Typography variant="body2" color="text.secondary">
                                 Lizards are a widespread group of squamate reptiles, with over 6,000
@@ -70,9 +84,9 @@ const ImagenAmpliada = ({imagen, openModal, closeModal,raza, subRaza}) => {
                                 </Typography> */}
                             </CardContent>
                             <CardActions>
-                                {/* <Button size="small">Share</Button>
-                                <Button size="small">Learn More</Button> */}
+                               
                             </CardActions>
+
                         </CardActionArea>
                     </Card>
                 </Box>
