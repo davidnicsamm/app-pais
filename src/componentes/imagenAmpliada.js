@@ -10,10 +10,12 @@ import CardActions from '@mui/material/CardActions';
 import CardActionArea from '@mui/material/CardActionArea';
 import Backdrop from '@mui/material/Backdrop';
 import IconButton from '@mui/material/IconButton';
-import Button from '@mui/material/Button';
-import LoadingButton from '@mui/lab/LoadingButton';
-import CloseIcon from '@mui/icons-material/Close';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import SaveIcon from '@mui/icons-material/Save';
+import ToolTip from '@mui/material/Tooltip';
+import{ saveAs } from 'file-saver';
+import axios from 'axios';
+import Imagenes from './imagenes';
 
 
 const style = {
@@ -31,13 +33,17 @@ const style = {
   
   };
 
+const handleSaveImage = (imagen) => {
+    saveAs(
+        imagen,
+        "foto.jpg"
+    )
+   
+}
+
 const ImagenAmpliada = ({imagen, openModal, closeModal,raza, subRaza}) => {
 
-    // const [mensaje, setMensaje] = useEffect('')
-
-    // useEffect(() => {
-        
-    // })
+   
 
     return(
 
@@ -56,17 +62,28 @@ const ImagenAmpliada = ({imagen, openModal, closeModal,raza, subRaza}) => {
                
                 <Box sx={style}>
                     <Card sx={{ width: 450, borderRadius: 5,}}>
-                        <CardActionArea>
-                            <Box sx={{textAlign:'right',  }} > 
-                                   
-                               
-                                
-                                <IconButton  onClick={() => {closeModal()}}>
-                                   <HighlightOffIcon color='error'></HighlightOffIcon> 
-                                </IconButton>
+                            <CardActionArea>
+                                <Box sx={{textAlign:'right'}} > 
+
+
+                                                            
+                                    <ToolTip title="Guardar imagen">
+                                            <IconButton onClick={() => {handleSaveImage(imagen)}} >
+                                                <SaveIcon color='primary' />
+                                            </IconButton>
+                                    </ToolTip>
                                 
 
-                            </Box>
+
+
+                                    <ToolTip title='Cerrar'>
+                                        <IconButton  tooltip="Cerrar" onClick={() => {closeModal()}}>
+                                        <HighlightOffIcon color='error'></HighlightOffIcon> 
+                                        </IconButton>  
+                                    </ToolTip>                              
+
+                                </Box>
+                            </CardActionArea>
                             <CardMedia
                                 component="img"
                             
@@ -83,11 +100,13 @@ const ImagenAmpliada = ({imagen, openModal, closeModal,raza, subRaza}) => {
                                 species, ranging across all continents except Antarctica
                                 </Typography> */}
                             </CardContent>
-                            <CardActions>
+                            {/* <CardActions>
+                                
+                                
                                
-                            </CardActions>
+                            </CardActions> */}
 
-                        </CardActionArea>
+                       
                     </Card>
                 </Box>
             </Modal>
