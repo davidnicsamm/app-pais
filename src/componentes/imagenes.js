@@ -68,8 +68,8 @@ const Imagenes = ({raza, subRaza, selectChange, progreso, changeProgreso}) => {
                 {listadoImagenes.map((item) => (
                     <ImageListItem key={item}>
                         <img
-                            src={`${item}?w=164&h=164&fit=crop&auto=format`}
-                            srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
+                            src={`${item}?w=164&h=164&fit=crop&Eauto=format`}
+                            // srcSet={`${item}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
                             alt="Imagen"
                             loading="lazy"
                             onChange={ (e) => {selectChange(e.target.value)}}
@@ -93,7 +93,7 @@ const Imagenes = ({raza, subRaza, selectChange, progreso, changeProgreso}) => {
                             </IconButton>
                             }
                         />
-                    </ImageListItem>
+                        </ImageListItem>
                 ))}
             </ImageList>}
 

@@ -16,22 +16,105 @@ import ToolTip from '@mui/material/Tooltip';
 import{ saveAs } from 'file-saver';
 import axios from 'axios';
 import Imagenes from './imagenes';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 
+const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 900,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
+});
+  
 
-const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 450,
-    bgcolor: 'background.paper',
-    border: '0px solid #000',
-    borderRadius: 5,
-    boxShadow: 24,
+const useStyles = makeStyles({
+    boxModal:{
+        position: 'absolute',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+      
+        bgcolor: 'background.paper',
+        border: '0px solid #000',
+        borderRadius: 5,
+        boxShadow: 24, 
+
+        [theme.breakpoints.down("sm")]:{
+            width: 300,
+        },
+       
+        
+        [theme.breakpoints.between("sm","md")]:{
+            width: 400,
+        },
+
+        [theme.breakpoints.up("md")]:{
+            width: 450,
+        }
+      },
+
+    cardModal:{ 
+       
+        borderRadius: 5,
+
+        [theme.breakpoints.down("sm")]:{
+            width: 300,
+        },
+        
+        [theme.breakpoints.between("sm","md")]:{
+            width: 400,
+        },
+
+        [theme.breakpoints.up("md")]:{
+            width: 450,
+        }
+
+      
 
     
+
+    },
+
+    cardMediaModal:{
+        maxHeight: 500,
+        
+
+
+        [theme.breakpoints.down("sm")]:{
+            maxHeight: 350,
+            width: 300,
+        },
+        
+        [theme.breakpoints.between("sm","md")]:{
+            width: 400,
+        },
+        
+
+        [theme.breakpoints.up("md")]:{
+            width: 450,
+        }
+    }
+
+
+
+})
+
+// const style = {
+//     position: 'absolute',
+//     top: '50%',
+//     left: '50%',
+//     transform: 'translate(-50%, -50%)',
+//     width: 450,
+//     bgcolor: 'background.paper',
+//     border: '0px solid #000',
+//     borderRadius: 5,
+//     boxShadow: 24,   
   
-  };
+//   };
 
 const handleSaveImage = (imagen) => {
     saveAs(
@@ -43,11 +126,9 @@ const handleSaveImage = (imagen) => {
 
 const ImagenAmpliada = ({imagen, openModal, closeModal,raza, subRaza}) => {
 
-   
+    const classes = useStyles()
 
-    return(
-
-            
+    return(            
             <Modal
                 open={openModal}
                 onClose={closeModal}
@@ -60,22 +141,17 @@ const ImagenAmpliada = ({imagen, openModal, closeModal,raza, subRaza}) => {
                 }}
             >
                
-                <Box sx={style}>
-                    <Card sx={{ width: 450, borderRadius: 5,}}>
+                {/* <Box sx={style} className={classes.boxModal}> */}
+                <Box className={classes.boxModal}>
+                    <Card className={classes.cardModal}>
                             <CardActionArea>
                                 <Box sx={{textAlign:'right'}} > 
-
-
-                                                            
                                     <ToolTip title="Guardar imagen">
                                             <IconButton onClick={() => {handleSaveImage(imagen)}} >
                                                 <SaveIcon color='primary' />
                                             </IconButton>
                                     </ToolTip>
-                                
-
-
-
+                                   
                                     <ToolTip title='Cerrar'>
                                         <IconButton  tooltip="Cerrar" onClick={() => {closeModal()}}>
                                         <HighlightOffIcon color='error'></HighlightOffIcon> 
@@ -85,9 +161,8 @@ const ImagenAmpliada = ({imagen, openModal, closeModal,raza, subRaza}) => {
                                 </Box>
                             </CardActionArea>
                             <CardMedia
+                                className={classes.cardMediaModal}
                                 component="img"
-                            
-                                sx={{maxHeight: 500, maxWidth: 450}}
                                 image={imagen}
                                 // alt="green iguana"
                             />

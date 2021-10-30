@@ -12,11 +12,23 @@ import Grid from '@mui/material/Grid';
 import ImagenAmpliada from './imagenAmpliada';
 import TextoInicial from './textoInicial';
 import Encabezado from './encabezado';
-import rgba from 'color-rgba';
 
 
-//import CircularProgress from '@mui/material/CircularProgress';
 
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 600,
+        md: 900,
+        lg: 1200,
+        xl: 1536,
+      },
+    },
+});
+  
 
 const useStyles = makeStyles({
    
@@ -36,6 +48,9 @@ const useStyles = makeStyles({
 
     gridSelect: {       
         backgroundColor: '#FFFFFF',
+       
+
+        
     },
 
     gridImages: {
@@ -96,7 +111,7 @@ const Cuerpo = () => {
         <Container className={classes.contenedor}>
             <Grid container className={classes.gridContainer}> 
 
-                <Grid item md  xs={12} mb={1} className={classes.gridSelect} sx={{ mr:2, minHeight: 300, maxHeight:400, borderRadius:1,border: 1, borderColor:'#CCCCCC', boxShadow:1}}>                   
+                <Grid item md  xs={12} sm={12} className={classes.gridSelect} sx={{ mr:2, minHeight: 300, maxHeight:400, borderRadius:1,border: 1, borderColor:'#CCCCCC', boxShadow:1}}>                   
                     
                     <Encabezado cadena={"Seleccionar"}></Encabezado>
                    
@@ -109,7 +124,7 @@ const Cuerpo = () => {
                     
                 </Grid>
                 
-                <Grid item md={9} xs={12} className={classes.gridImages} sx={{border: 1,borderRadius: 1, borderColor:'#CCCCCC', boxShadow:1}}>
+                <Grid item md={9} xs={12} sm={12} className={classes.gridImages} sx={{border: 1,borderRadius: 1, borderColor:'#CCCCCC', boxShadow:1}}>
                     {/* <Box sx={{height:40, width:'100%', backgroundColor:'#D28D39', borderTopLeftRadius: 9, borderTopRightRadius: 9, pt: 1}}> */}
                         {/* <Typography gutterBottom variant="h5" component="div">
                             {raza}
